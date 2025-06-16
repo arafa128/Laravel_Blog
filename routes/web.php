@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\TestControllers;
+use App\Http\Controllers\SingleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -28,3 +30,7 @@ Route::get('testprintname/{name?}',[TestControllers::class,'testprintname'])->na
 
 // });
 
+//created using php artisan make:conteroller
+// Route::get('/hello', [UserController::class,'Index']);
+//created using php artisan make:controller --invokable(single action controller)
+// Route::get('/hello',SingleController::class);
