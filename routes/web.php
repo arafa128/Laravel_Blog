@@ -1,25 +1,26 @@
 <?php
 
-use App\Http\Controllers\TestControllers;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\SingleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Route::get('/arafa',[TestControllers::class,'arafa']);
-//requred parmaeter
-Route::get('printName/{name}',[TestControllers::class,'printName']);
+// Route::get('/arafa',[TestController::class,'arafa']);
+// //requred parmaeter
+// Route::get('printName/{name}',[TestController::class,'printName']);
 
-//optinal parametr
-Route::get('testprintname/{name?}',[TestControllers::class,'testprintname'])->name('print direct test');
+// //optinal parametr
+// Route::get('testprintname/{name?}',[TestController::class,'testprintname'])->name('print direct test');
 
 // Route::redirect('/here','https://www.youtube.com/watch?v=Pwatx1n1Ws0');
 
 // //Route group and ->name alson ->prefix
-// Route::controller(TestControllers::class)->name('test.')->group(function () {
+// Route::controller(TestController::class)->name('test.')->group(function () {
 
 //     Route::get('/arafa','arafa');
 //     //requred parmaeter
@@ -34,3 +35,5 @@ Route::get('testprintname/{name?}',[TestControllers::class,'testprintname'])->na
 // Route::get('/hello', [UserController::class,'Index']);
 //created using php artisan make:controller --invokable(single action controller)
 // Route::get('/hello',SingleController::class);
+//exept and only functions
+Route::resource('posts',PostController::class)->except(['index','show']);

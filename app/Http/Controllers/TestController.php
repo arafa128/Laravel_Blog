@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-class TestControllers extends Controller
+class TestController extends Controller
 {
     public function arafa()
     {
