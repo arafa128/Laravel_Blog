@@ -3,6 +3,7 @@
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\SingleController;
+use App\Http\Middleware\CheckIfNameIsArafa;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,9 +23,9 @@ Route::get('/', function () {
 // //Route group and ->name alson ->prefix
 // Route::controller(TestController::class)->name('test.')->group(function () {
 
-//     Route::get('/arafa','arafa');
-//     //requred parmaeter
-//     Route::get('printName/{name}','printName');
+    // Route::get('/arafa','arafa');
+    //requred parmaeter
+    // Route::get('printName/{name}','printName');
 
 //     //optinal parametr
 //     Route::get('testprintname/{name?}','testprintname')->name('print direct test');
@@ -34,6 +35,6 @@ Route::get('/', function () {
 //created using php artisan make:conteroller
 // Route::get('/hello', [UserController::class,'Index']);
 //created using php artisan make:controller --invokable(single action controller)
-// Route::get('/hello',SingleController::class);
+Route::get('/hello',SingleController::class)->middleware(CheckIfNameIsArafa::class);
 //exept and only functions
-Route::resource('posts',PostController::class)->except(['index','show']);
+// Route::resource('posts',PostController::class)->except(['index','show']);
