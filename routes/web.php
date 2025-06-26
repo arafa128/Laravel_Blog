@@ -35,6 +35,6 @@ Route::get('/', function () {
 //created using php artisan make:conteroller
 // Route::get('/hello', [UserController::class,'Index']);
 //created using php artisan make:controller --invokable(single action controller)
-Route::get('/hello',SingleController::class)->middleware(CheckIfNameIsArafa::class);
+// Route::get('/hello',SingleController::class)->middleware(CheckIfNameIsArafa::class);
 //exept and only functions
-// Route::resource('posts',PostController::class)->except(['index','show']);
+Route::resource('posts',PostController::class);
