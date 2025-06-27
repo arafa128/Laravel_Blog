@@ -50,4 +50,4 @@ Route::controller(ThemeController::class)->group(function(){
     Route::get('/contacts','contacts');
 });
 
-//test
+//
