@@ -49,3 +49,5 @@ Route::controller(ThemeController::class)->group(function(){
     Route::get('/services','services');
     Route::get('/contacts','contacts');
 });
+
+//test
