@@ -1,15 +1,18 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\SingleController;
 use App\Http\Middleware\CheckIfNameIsArafa;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     $data = ['1','2','3'];
+//     // return view('page' , ['myData' => $data]);
+//     return view('page' , compact('data'));
+// });
 
 // Route::get('/arafa',[TestController::class,'arafa']);
 // //requred parmaeter
@@ -37,4 +40,12 @@ Route::get('/', function () {
 //created using php artisan make:controller --invokable(single action controller)
 // Route::get('/hello',SingleController::class)->middleware(CheckIfNameIsArafa::class);
 //exept and only functions
-Route::resource('posts',PostController::class);
+// Route::resource('posts',PostController::class);
+
+//Theme ROUTES
+
+Route::controller(ThemeController::class)->group(function(){
+    Route::get('/about','about');
+    Route::get('/services','services');
+    Route::get('/contacts','contacts');
+});
