@@ -44,9 +44,9 @@ use Illuminate\Support\Facades\Route;
 
 //Theme ROUTES
 
-Route::controller(ThemeController::class)->group(function(){
-    Route::get('/about','about');
-    Route::get('/services','services');
-    Route::get('/contacts','contacts');
+Route::controller(ThemeController::class)->name('theme.')->group(function(){
+    Route::get('/about','about')->name('about');
+    Route::get('/services','services')->name('services');
+    Route::get('/contacts','contacts')->name('contacts');
 });
 
