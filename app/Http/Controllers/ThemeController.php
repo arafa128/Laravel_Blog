@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorecontactsRequest;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use Psy\Output\Theme;
 
@@ -18,7 +19,9 @@ class ThemeController extends Controller
     }
     public function contacts() 
     {
-        return view('theme.contacts');
+        $data = Contact::all();
+        dd($data);
+        return view('theme.contacts',compact('data'));
     }
     public function store(StorecontactsRequest $request) 
     {
