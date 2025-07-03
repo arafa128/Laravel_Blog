@@ -47,13 +47,15 @@ class ThemeController extends Controller
         // $contact ->save();
 
         //update recored using mass assignment((fillbale))
-        $contact = Contact::find(16);
-        $contact->update([
-            'last_name' => 'updated using fillbale',
-            'status' => '0',
-        ]);
+        // $contact = Contact::find(16);
+        // $contact->update([
+        //     'last_name' => 'updated using fillbale',
+        //     'status' => '0',
+        // ]);
+        $contact = Contact::find(17)->delete();
 
-        dd('updated successfully');
+
+        dd('deleted successfully');
         return view('theme.contacts',compact('data'));
     }
     public function store(StorecontactsRequest $request) 
