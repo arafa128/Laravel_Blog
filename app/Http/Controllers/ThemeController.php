@@ -18,9 +18,42 @@ class ThemeController extends Controller
         return view('theme.services');
     }
     public function contacts() 
-    {
-        $data = Contact::all();
-        dd($data);
+    {   //search data
+        // $data = Contact::where('first_name' , '=', 'ali')->get();
+        // for ids
+        // $data = Contact::find(0);
+        // $data = Contact::all();
+        // dd($data);
+
+        //creat data
+        // $contacts = new Contact();
+        // $contacts->first_name = 'ibrahem';
+        // $contacts->last_name = 'khaled';
+        // $contacts->email = 'ibrahem@gmain.com';
+        // $contacts->message = 'ibrahem\'s concats';
+        // $contacts->save();
+        //fillable methode for securty
+        // Contact::create([
+        //     'first_name' => 'yasser',
+        //     'last_name' => 'mamdoh',
+        //     'email' => 'yasser@gmail.com',
+        //     'message' => 'mamdoh\s contact',
+        //     'status' => '1',
+        // ]);
+
+        //updated data
+        // $contact = Contact::find(15);
+        // $contact -> last_name = 'Updated last name';
+        // $contact ->save();
+
+        //update recored using mass assignment((fillbale))
+        $contact = Contact::find(16);
+        $contact->update([
+            'last_name' => 'updated using fillbale',
+            'status' => '0',
+        ]);
+
+        dd('updated successfully');
         return view('theme.contacts',compact('data'));
     }
     public function store(StorecontactsRequest $request) 
