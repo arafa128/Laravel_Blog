@@ -52,11 +52,12 @@ class ThemeController extends Controller
         //     'last_name' => 'updated using fillbale',
         //     'status' => '0',
         // ]);
-        $contact = Contact::find(17)->delete();
+        //delet record
+        // $contact = Contact::find(17)->delete();
 
 
-        dd('deleted successfully');
-        return view('theme.contacts',compact('data'));
+        // dd('deleted successfully');
+        return view('theme.contacts');
     }
     public function store(StorecontactsRequest $request) 
     {
@@ -79,7 +80,11 @@ class ThemeController extends Controller
         // ]);
 
         $validatedData = $request->validated();
-        dd($validatedData);
+        // dd($validatedData);
+
+        Contact::create($validatedData);
+
+        return back()->with('status','your message has been successfully sent');
 
 
         //return view('theme.contacts');
