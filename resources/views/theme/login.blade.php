@@ -23,6 +23,7 @@
                                 placeholder="Enter your password">
                         </div>
                         <div class="form-group text-center text-md-right mt-3">
+                            <a href="{{ route('register') }}">Sign up</a>
                             <button type="submit" class="button button--active button-contactForm">Login</button>
                         </div>
                     </form>
