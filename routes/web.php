@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\ContactsController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -13,8 +15,9 @@ Route::controller(ThemeController::class)->name('theme.')->group(function(){
     Route::get('/singleblog','singleblog')->name('singleblog');
 });
 
+Route::post('/subscriber/store/' , [SubscriberController::class ,'store'])->name('subscriber.store');
 
-
+Route::post('/contacts/store', [ContactsController::class, 'store'])->name('contacts.store');
 
 // Route::get('/', function () {
 //     return view('welcome');
